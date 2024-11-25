@@ -56,7 +56,7 @@
 - 行程規劃
 - 回顧分享
 
-[日曆功能截圖位置]
+![CalendarPage.png](screenshots/CalendarPage.png)
 
 ## 系統架構
 
@@ -65,14 +65,12 @@
 - 使用 Android Jetpack 組件
 - Material Design UI設計
 
-[此處放入您的前端架構圖]
-
 ### 後端架構
 - Java Servlet 後端服務
 - MySQL 資料庫
 - Google Cloud Platform 雲端服務
 
-[此處已有您的系統架構圖]
+![Arch.png](screenshots/Arch.png)
 
 ## 技術實現
 
@@ -101,7 +99,7 @@
 - Firebase 
 - Google Places API
 
-[可放置重要功能的程式碼片段或流程圖]
+![Dev.png](screenshots/Dev.png)
 
 ## 安裝說明
 
