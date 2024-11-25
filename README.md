@@ -111,7 +111,7 @@
 - 需要位置權限
 
 ## 相關連結
-- [後端程式碼庫](您的後端GitHub連結)
+- [後端程式碼庫](https://github.com/MaiSharon/com.tibame.foodhunter_server)
 
 ## 意見回饋
 如果您有任何問題或建議，歡迎透過以下方式聯繫：
