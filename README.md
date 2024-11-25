@@ -35,7 +35,7 @@
 - 地理位置搜尋
 - 多樣化篩選條件
 
-[搜尋功能截圖位置]
+![SearchPage.png](screenshots/SearchPage.png)
 
 ### 4. 餐廳評論
 - 評分系統
