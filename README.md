@@ -2,9 +2,9 @@
 
 美食獵人是一款結合餐廳搜尋、社群分享與揪團功能的 Android 應用程式，致力於解決使用者的用餐選擇困擾。
 
-<div style="display: flex; flex-wrap: no-wrap; gap: 10px;">
-    <img src="screenshots/HomePage.png" width="170" style="max-width: 30%;"/>
-    <img src="screenshots/Calendar_1.png" width="170" style="max-width: 30%;"/>
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+    <img src="screenshots/HomePage.png" width="170" style="max-width: 30%; min-width: 150px;"/>
+    <img src="screenshots/Calendar_1.png" width="170" style="max-width: 30%; min-width: 150px;"/>
 </div>
 
 ## 目錄
@@ -48,17 +48,17 @@
 
 - 個人美食日記
 - 行事曆
-
-<div style="display: flex; flex-wrap: no-wrap; gap: 10px;">
-    <img src="screenshots/Calendar_1.png" width="170" style="max-width: 30%;"/>
-    <img src="screenshots/Calendar_2.png" width="170" style="max-width: 30%;"/>
-    <img src="screenshots/Calendar_3.png" width="170" style="max-width: 30%;"/>
+<summary>日曆功能 ⬇️</summary>
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+    <img src="screenshots/Calendar_1.png" width="170" style="max-width: 30%; min-width: 150px;"/>
+    <img src="screenshots/Calendar_2.png" width="170" style="max-width: 30%; min-width: 150px;"/>
+    <img src="screenshots/Calendar_3.png" width="170" style="max-width: 30%; min-width: 150px;"/>
 </div>
-
-<div style="display: flex; flex-wrap: no-wrap; gap: 10px;">
-    <img src="screenshots/Note_1.png" width="170" style="max-width: 30%;"/>
-    <img src="screenshots/Note_3.png" width="170" style="max-width: 30%;"/>
-    <img src="screenshots/Note_2.png" width="170" style="max-width: 30%;"/>
+<summary>筆記功能 ⬇️</summary>
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+    <img src="screenshots/Note_1.png" width="170" style="max-width: 30%; min-width: 150px;"/>
+    <img src="screenshots/Note_3.png" width="170" style="max-width: 30%; min-width: 150px;"/>
+    <img src="screenshots/Note_2.png" width="170" style="max-width: 30%; min-width: 150px;"/>
 </div>
 
 ## 系統架構
