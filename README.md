@@ -48,6 +48,7 @@
 
 - 個人美食日記
 - 行事曆
+
 <summary>日曆功能 ⬇️</summary>
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
     <img src="screenshots/Calendar_1.png" width="170" style="max-width: 30%; min-width: 150px;"/>
@@ -69,15 +70,20 @@
 
 ### 前端架構 (Android)
 
-- 採用 MVVM 設計模式
-- 使用 Android Jetpack 組件
-- Material Design UI設計
+> 採用現代化 Android開發技術棧，注重程式碼可維護性與使用者體驗
+
+- MVVM 架構：UI和業務邏輯分離的架構，增加可維護性
+- Jetpack Compose：Kotlin聲明式 UI框架，簡化 UI開發與方便管理 UI狀態
+- Material Design 3:透過設計規範，實現一致性的 UI視覺體驗
 
 ### 後端架構
 
-- Java Servlet 後端服務
-- MySQL 資料庫
-- Google Cloud Platform 雲端服務
+> 採用傳統 Java Web技術搭配 Google Cloud服務
+
+- Java Servlet：基於 Tomcat，負責處理前後端通訊，提供 API接口
+- JDBC：負責與 MySQL DB交互
+- Google Cloud MySQL DB：雲端資料庫，負責數據存取
+- Google Cloud Firebase（FCM）：負責即時訊息推播
 
 ## 技術實現
 
@@ -91,27 +97,7 @@
 - Eclipse IDE
 - MySQL Workbench
 - Postman API 測試工具
-- Source Tree
-
-### 前端技術
-
-- Android JetPack Compose
-- MVVM Architecture
-- Material Design 3
-- Firebase Cloud Messaging
-
-### 後端技術
-
-- Java Servlet
-- JDBC
-- Apache Tomcat
-- MySQL Database
-
-### 第三方服務
-
-- Google Cloud Platform
-- Firebase
-- Google Places API
+- Source Tree + GitHub（Git版本控管）
 
 ## 安裝說明
 
