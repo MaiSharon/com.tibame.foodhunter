@@ -51,15 +51,15 @@
 
 <summary>日曆功能 ⬇️</summary>
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-    <img src="screenshots/Calendar_1.png" width="170" style="max-width: 30%; min-width: 150px;"/>
-    <img src="screenshots/Calendar_2.png" width="170" style="max-width: 30%; min-width: 150px;"/>
-    <img src="screenshots/Calendar_3.png" width="170" style="max-width: 30%; min-width: 150px;"/>
+    <img src="screenshots/Calendar_1.png" width="200" style="max-width: 30%; min-width: 150px;"/>
+    <img src="screenshots/Calendar_2.png" width="200" style="max-width: 30%; min-width: 150px;"/>
+    <img src="screenshots/Calendar_3.png" width="200" style="max-width: 30%; min-width: 150px;"/>
 </div>
 <summary>筆記功能 ⬇️</summary>
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-    <img src="screenshots/Note_1.png" width="170" style="max-width: 30%; min-width: 150px;"/>
-    <img src="screenshots/Note_3.png" width="170" style="max-width: 30%; min-width: 150px;"/>
-    <img src="screenshots/Note_2.png" width="170" style="max-width: 30%; min-width: 150px;"/>
+    <img src="screenshots/Note_1.png" width="200" style="max-width: 30%; min-width: 150px;"/>
+    <img src="screenshots/Note_3.png" width="200" style="max-width: 30%; min-width: 150px;"/>
+    <img src="screenshots/Note_2.png" width="200" style="max-width: 30%; min-width: 150px;"/>
 </div>
 
 ## 系統架構
