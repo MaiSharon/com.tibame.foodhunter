@@ -22,9 +22,22 @@ android {
         }
     }
 
+    buildFeatures {
+        compose = true
+        buildConfig = true
+    }
+
     buildTypes {
-        release {
+        debug {
+            // dev env
+            buildConfigField("Boolean","IS_TEST_MODE", "true")
+            buildConfigField("String","API_URL", "\"\"")
             isMinifyEnabled = false
+        }
+        release {
+            buildConfigField("Boolean","IS_TEST_MODE", "false")
+            buildConfigField("String","API_URL", "http://10.2.17.40:8080/com.tibame.foodhunter_server")
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -38,9 +51,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures {
-        compose = true
-    }
+
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
     }
