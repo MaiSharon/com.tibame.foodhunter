@@ -5,7 +5,6 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -46,7 +45,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -62,7 +60,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.tibame.foodhunter.R
 import com.tibame.foodhunter.a871208s.UserViewModel
-import com.tibame.foodhunter.andysearch.RandomFoodVM
 import com.tibame.foodhunter.andysearch.SearchScreenVM
 import com.tibame.foodhunter.sharon.components.SearchBar
 import com.tibame.foodhunter.ui.theme.FColor
@@ -408,7 +405,6 @@ fun LocationSelectionSheet(
 
         val scope = rememberCoroutineScope()
         var searchQuery by remember { mutableStateOf("") }
-        var isActive by remember { mutableStateOf(false) }
 
         SearchBar(
             query = searchQuery,
@@ -420,15 +416,13 @@ fun LocationSelectionSheet(
                     fontSize = 16.sp
                 )
             },
-            active = isActive,
-            onActiveChange = { isActive = it },
-            modifier = Modifier.padding(horizontal = 16.dp),
             onSearch = {
                 scope.launch {
                     Log.d("LocationSelection", "執行搜尋: query = $searchQuery")
                     testVM.updateSearchRest(searchQuery)
                 }
-            }
+            },
+            modifier = Modifier.padding(horizontal = 16.dp)
         )
 
         Spacer(modifier = Modifier.height(16.dp))

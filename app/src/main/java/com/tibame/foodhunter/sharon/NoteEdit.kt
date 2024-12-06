@@ -1,8 +1,6 @@
 package com.tibame.foodhunter.sharon
 
-import android.os.Build
 import android.util.Log
-import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -633,7 +631,6 @@ fun BottomSheetContent(
 
     val scope = rememberCoroutineScope()
     var searchQuery by remember { mutableStateOf("") }
-    var isActive by remember { mutableStateOf(false) }
     SearchBar(
         query = searchQuery,
         onQueryChange = { searchQuery = it },
@@ -644,12 +641,10 @@ fun BottomSheetContent(
                 fontSize = 16.sp
             )
         },
-        active = isActive,
-        onActiveChange = { isActive = it },
-        modifier = Modifier.padding(horizontal = 16.dp),
         onSearch = {
             scope.launch { testVM.updateSearchRest(searchQuery) }
-        }
+        },
+        modifier = Modifier.padding(horizontal = 16.dp)
     )
 
     Column(

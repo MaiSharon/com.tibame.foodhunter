@@ -41,7 +41,6 @@ fun SearchPost(
     val selectedFilters by postViewModel.selectedFilters.collectAsState()
     val filteredPosts by postViewModel.getFilteredPosts().collectAsState()
     val searchQuery by postViewModel.searchQuery.collectAsState() // Use ViewModel's searchQuery
-    var isActive by remember { mutableStateOf(false) }
 
     Column(
         verticalArrangement = Arrangement.spacedBy(0.dp, Alignment.Top),
@@ -59,9 +58,6 @@ fun SearchPost(
                     fontSize = 16.sp
                 )
             },
-            active = isActive,
-            onActiveChange = { isActive = it },
-            modifier = Modifier.padding(horizontal = 16.dp)
         )
 
         FilterChips(

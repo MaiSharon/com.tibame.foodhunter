@@ -4,7 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
@@ -51,8 +50,6 @@ fun SearchBar(
     onQueryChange: (String) -> Unit,
     placeholder: @Composable () -> Unit = { Text("搜尋") },
     onSearch: () -> Unit = {},
-    active: Boolean = false,
-    onActiveChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
     val keyboardController = LocalSoftwareKeyboardController.current
@@ -105,7 +102,6 @@ fun SearchBar(
                     ) {
                         IconButton(
                             onClick = { onQueryChange("") },
-//                            modifier = Modifier.fillMaxSize()
                         ) {
                             Icon(
                                 modifier = Modifier.size(24.dp),
@@ -141,7 +137,6 @@ fun SearchBar(
 @Composable
 fun SearchBarExample() {
     var searchQuery by remember { mutableStateOf("") }
-    var isActive by remember { mutableStateOf(false) }
 
     SearchBar(
         query = searchQuery,
@@ -153,8 +148,6 @@ fun SearchBarExample() {
                 fontSize = 16.sp
             )
         },
-        active = isActive,
-        onActiveChange = { isActive = it },
         modifier = Modifier.padding(horizontal = 16.dp)
     )
 }

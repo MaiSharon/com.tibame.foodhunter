@@ -51,7 +51,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.tibame.foodhunter.R
 import com.tibame.foodhunter.andysearch.SearchScreenVM
-import com.tibame.foodhunter.sharon.components.SearchBar
 import com.tibame.foodhunter.ui.theme.FColor
 import com.tibame.foodhunter.zoe.FilterChips
 
