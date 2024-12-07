@@ -3,8 +3,14 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.map.serect)
     alias(libs.plugins.google.gms.googleServices)
+
+    alias(libs.plugins.hilt)
+    kotlin("kapt")
 }
 
+kapt {
+    correctErrorTypes = true
+}
 android {
     namespace = "com.tibame.foodhunter"
     compileSdk = 34
@@ -30,12 +36,10 @@ android {
     buildTypes {
         debug {
             // dev env
-            buildConfigField("Boolean","IS_TEST_MODE", "true")
             buildConfigField("String","API_URL", "\"\"")
             isMinifyEnabled = false
         }
         release {
-            buildConfigField("Boolean","IS_TEST_MODE", "false")
             buildConfigField("String","API_URL", "http://10.2.17.40:8080/com.tibame.foodhunter_server")
             isMinifyEnabled = true
             proguardFiles(
@@ -63,6 +67,9 @@ android {
 }
 
 dependencies {
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+
 
     implementation(libs.androidx.core.ktx)
 

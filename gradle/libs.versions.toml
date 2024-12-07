@@ -1,4 +1,5 @@
 [versions]
+hilt = "2.51.1"
 agp = "8.6.0"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
@@ -10,6 +11,7 @@ activityCompose = "1.9.2"
 composeBom = "2024.04.01"
 navigationRuntimeKtx = "2.8.3"
 navigationCompose = "2.8.3"
+
 
 uiTestAndroid = "1.7.2"
 accompanistPermissions = "0.36.0"
@@ -32,6 +34,9 @@ firebaseBom = "33.5.1"
 firebaseMessagingKtx = "24.0.3"
 
 [libraries]
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -70,6 +75,9 @@ firebase-messaging-ktx = { group = "com.google.firebase", name = "firebase-messa
 
 
 [plugins]
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+
+
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 map-serect ={id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "secretsGradlePlugin"}
