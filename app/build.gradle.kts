@@ -4,6 +4,8 @@ plugins {
     alias(libs.plugins.map.serect)
     alias(libs.plugins.google.gms.googleServices)
 
+
+
     alias(libs.plugins.hilt)
     kotlin("kapt")
 }
@@ -67,6 +69,10 @@ android {
 }
 
 dependencies {
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+    implementation(libs.okhttp.logging)
+
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
 

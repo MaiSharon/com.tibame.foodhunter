@@ -1,5 +1,9 @@
 [versions]
+retrofit = "2.9.0"
+okhttp = "4.12.0"
+
 hilt = "2.51.1"
+
 agp = "8.6.0"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
@@ -34,6 +38,10 @@ firebaseBom = "33.5.1"
 firebaseMessagingKtx = "24.0.3"
 
 [libraries]
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
 
