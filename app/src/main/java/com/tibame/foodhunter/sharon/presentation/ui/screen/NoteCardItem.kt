@@ -1,4 +1,4 @@
-package com.tibame.foodhunter.sharon
+package com.tibame.foodhunter.sharon.presentation.ui.screen
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Row

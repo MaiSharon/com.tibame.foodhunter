@@ -1,4 +1,4 @@
-package com.tibame.foodhunter.sharon
+package com.tibame.foodhunter.sharon.presentation.ui.screen
 
 import android.util.Log
 import androidx.compose.foundation.background
@@ -17,7 +17,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -33,6 +32,7 @@ import com.tibame.foodhunter.sharon.viewmodel.PersonalToolsVM
 import com.tibame.foodhunter.ui.theme.FoodHunterTheme
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.tibame.foodhunter.a871208s.UserViewModel
+import com.tibame.foodhunter.sharon.TabConstants
 import com.tibame.foodhunter.sharon.components.topbar.CalendarTopBar
 import com.tibame.foodhunter.sharon.components.topbar.NoteTopBar
 import com.tibame.foodhunter.sharon.viewmodel.CalendarVM

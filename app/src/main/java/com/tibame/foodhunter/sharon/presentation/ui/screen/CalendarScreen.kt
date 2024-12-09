@@ -1,4 +1,4 @@
-package com.tibame.foodhunter.sharon
+package com.tibame.foodhunter.sharon.presentation.ui.screen
 
 import android.util.Log
 import androidx.compose.foundation.background
@@ -22,17 +22,15 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.tibame.foodhunter.R
 import com.tibame.foodhunter.a871208s.UserViewModel
+import com.tibame.foodhunter.sharon.CalendarWidget
 import com.tibame.foodhunter.sharon.components.card.NoteOrGroupCard
-import com.tibame.foodhunter.sharon.data.Book
 import com.tibame.foodhunter.sharon.util.CalendarUiState
 import com.tibame.foodhunter.sharon.data.CardContentType
 import com.tibame.foodhunter.sharon.data.Group
 import com.tibame.foodhunter.sharon.data.Note
 import com.tibame.foodhunter.sharon.util.DateUtil
-import com.tibame.foodhunter.sharon.viewmodel.BookViewModel
 import com.tibame.foodhunter.sharon.viewmodel.CalendarVM
 import com.tibame.foodhunter.ui.theme.FColor
-import kotlinx.coroutines.delay
 import java.time.LocalDate
 import java.util.Calendar
 

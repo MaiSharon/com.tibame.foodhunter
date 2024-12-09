@@ -1,4 +1,4 @@
-package com.tibame.foodhunter.sharon
+package com.tibame.foodhunter.sharon.presentation.ui.screen
 
 import android.util.Log
 import androidx.compose.foundation.background

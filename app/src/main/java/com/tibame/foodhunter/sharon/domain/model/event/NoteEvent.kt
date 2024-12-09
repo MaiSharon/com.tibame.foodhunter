@@ -1,10 +1,10 @@
-package com.tibame.foodhunter.sharon.event
+package com.tibame.foodhunter.sharon.domain.model.event
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-object CalendarEvent {
-    private val _refreshTrigger = MutableStateFlow(false)
+object NoteEvent {
+    private val _refreshTrigger = MutableStateFlow(false)  // 改用 boolean
     val refreshTrigger = _refreshTrigger.asStateFlow()
 
     fun triggerRefresh() {
