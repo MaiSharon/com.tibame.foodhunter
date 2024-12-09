@@ -38,11 +38,11 @@ android {
     buildTypes {
         debug {
             // dev env
-            buildConfigField("String","API_URL", "\"\"")
+            buildConfigField("String","BASE_URL", "\"\"")
             isMinifyEnabled = false
         }
         release {
-            buildConfigField("String","API_URL", "http://10.2.17.40:8080/com.tibame.foodhunter_server")
+            buildConfigField("String","BASE_URL", "http://10.2.17.40:8080/com.tibame.foodhunter_server")
             isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
