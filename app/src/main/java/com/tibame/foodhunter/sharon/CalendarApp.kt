@@ -1,7 +1,6 @@
 package com.tibame.foodhunter.sharon
 
 import Roboto
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -19,15 +18,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.layout.wrapContentWidth
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -43,7 +37,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -54,8 +47,6 @@ import java.time.YearMonth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
-import androidx.compose.material.icons.filled.Edit
-import androidx.compose.material.icons.filled.Delete
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalLayoutDirection
@@ -64,11 +55,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.tibame.foodhunter.R
-import com.tibame.foodhunter.sharon.data.Book
 import com.tibame.foodhunter.sharon.util.CalendarUiState
 import com.tibame.foodhunter.sharon.util.DateUtil
 import com.tibame.foodhunter.sharon.util.getDisplayName
-import com.tibame.foodhunter.sharon.viewmodel.BookViewModel
 import com.tibame.foodhunter.sharon.viewmodel.CalendarVM
 import com.tibame.foodhunter.ui.theme.FColor
 
@@ -83,61 +72,14 @@ fun CalendarAppPreview() {
     CalendarApp()
 }
 
-@Composable
-fun BookListComposable(
-    books: List<Book>, // 傳入書籍列表
-    modifier: Modifier = Modifier, // 用來自訂佈局
-    onItemClick: (Book) -> Unit, // 點擊書籍項目時執行的動作
-    onEditClick: (Book) -> Unit, // 編輯書籍
-    onDeleteClick: (Book) -> Unit, // 刪除書籍
-    showMore: Boolean, // 是否顯示編輯和刪除按鈕
-) {
-    LazyColumn(
-        modifier
-            .fillMaxWidth()
-            .padding(16.dp)
-    ) {
-        items(books) { book ->
-            ListItem(
-                // 讓項目可被點擊，並設定點擊時欲執行內容
-                modifier = Modifier.clickable { onItemClick(book) },
-                headlineContent = { Text(book.name) },
-                supportingContent = { Text(book.price.toString()) },
-                leadingContent = {
-                    Image(
-                        painter = painterResource(id = book.image),
-                        contentDescription = "book"
-                    )
-                },
-                trailingContent = {
-                    if (showMore) {
-                        Row {
-                            // 編輯按鈕
-                            IconButton(onClick = { onEditClick(book) }) {
-                                Icon(Icons.Filled.Edit, contentDescription = "edit")
-                            }
-                            // 刪除按鈕
-                            IconButton(onClick = { onDeleteClick(book) }) {
-                                Icon(Icons.Filled.Delete, contentDescription = "delete")
-                            }
-                        }
-                    }
-                }
-            )
-        }
-    }
-}
-
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CalendarApp(
     viewModel: CalendarVM = viewModel(),
-    bookViewModel: BookViewModel = viewModel(), // 書籍 ViewModel
 
 ) {
     val uiState by viewModel.uiState.collectAsState()
-    val books by bookViewModel.bookState.collectAsState() // 取得書籍狀態
 
 
     // 初始化當天的選中日期
@@ -156,21 +98,6 @@ fun CalendarApp(
             }
         }
     }
-
-//    var selectedBooks by remember {
-//        mutableStateOf(emptyList<Book>())
-//    }
-//
-//    // 當 selectedDate 改變時更新 selectedBooks
-//    LaunchedEffect(selectedDate, books) {
-//        selectedBooks = books.filter { book ->
-//            selectedDate?.let { date ->
-//                book.date.dayOfMonth.toString() == date.dayOfMonth &&
-//                        book.date.monthValue == date.month &&
-//                        book.date.year == date.year
-//            } ?: false
-//        }
-//    }
 
 
     Scaffold(
