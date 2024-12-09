@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.tibame.foodhunter.sharon.data.CardContentType
 import com.tibame.foodhunter.sharon.data.Note
 import com.tibame.foodhunter.sharon.data.NoteRepository
-import com.tibame.foodhunter.sharon.event.NoteEvent
+import com.tibame.foodhunter.sharon.domain.model.event.NoteEvent
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

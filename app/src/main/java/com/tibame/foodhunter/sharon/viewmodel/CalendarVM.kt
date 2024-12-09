@@ -10,7 +10,7 @@ import com.tibame.foodhunter.sharon.data.Group
 import com.tibame.foodhunter.sharon.data.GroupRepository
 import com.tibame.foodhunter.sharon.data.Note
 import com.tibame.foodhunter.sharon.data.NoteRepository
-import com.tibame.foodhunter.sharon.event.CalendarEvent
+import com.tibame.foodhunter.sharon.domain.model.event.CalendarEvent
 import com.tibame.foodhunter.sharon.util.CalendarDataSource
 import com.tibame.foodhunter.sharon.util.CalendarUiState
 import com.tibame.foodhunter.sharon.viewmodel.NoteVM.Companion

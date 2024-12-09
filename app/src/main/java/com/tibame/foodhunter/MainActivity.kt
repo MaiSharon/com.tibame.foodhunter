@@ -67,16 +67,15 @@ import com.tibame.foodhunter.global.*
 import com.tibame.foodhunter.ai_ying.*
 import com.tibame.foodhunter.andysearch.RandomFood
 import com.tibame.foodhunter.andysearch.SearchResult
-import com.tibame.foodhunter.sharon.PersonalToolsScreen
+import com.tibame.foodhunter.sharon.presentation.ui.screen.PersonalToolsScreen
 
 import com.tibame.foodhunter.zoe.Home
 
 import com.tibame.foodhunter.andysearch.SearchScreen
 import com.tibame.foodhunter.andysearch.SearchScreenVM
-import com.tibame.foodhunter.sharon.NoteEditNavigation
-import com.tibame.foodhunter.sharon.NoteEditRoute
+import com.tibame.foodhunter.sharon.presentation.ui.screen.NoteEditNavigation
+import com.tibame.foodhunter.sharon.presentation.ui.screen.NoteEditRoute
 import com.tibame.foodhunter.sharon.viewmodel.PersonalToolsVM
-import com.tibame.foodhunter.ui.theme.FColor
 import com.tibame.foodhunter.wei.RestaurantDetail
 import com.tibame.foodhunter.wei.RestaurantDetailTopAppBar
 import com.tibame.foodhunter.wei.ReviewDetail
