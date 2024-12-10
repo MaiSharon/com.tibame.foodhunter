@@ -7,8 +7,8 @@ import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
 import com.tibame.foodhunter.a871208s.UserViewModel
-import com.tibame.foodhunter.global.CommonPost
-import com.tibame.foodhunter.global.serverUrl
+import com.tibame.foodhunter.core.data.remote.api.CommonPost
+import com.tibame.foodhunter.core.data.remote.api.serverUrl
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

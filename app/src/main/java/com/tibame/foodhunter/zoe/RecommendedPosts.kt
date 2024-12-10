@@ -1,8 +1,6 @@
 package com.tibame.foodhunter.zoe
 
 import android.util.Log
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -40,7 +38,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -48,7 +45,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.tibame.foodhunter.R
 import com.tibame.foodhunter.a871208s.UserViewModel
-import com.tibame.foodhunter.ui.theme.FColor
+import com.tibame.foodhunter.core.ui.theme.FColor
 import kotlinx.coroutines.launch
 @Composable
 fun RecommendedPosts(

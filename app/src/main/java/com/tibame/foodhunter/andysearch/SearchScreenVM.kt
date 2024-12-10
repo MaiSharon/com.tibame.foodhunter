@@ -3,12 +3,11 @@ package com.tibame.foodhunter.andysearch
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
-import com.tibame.foodhunter.global.CommonPost
-import com.tibame.foodhunter.global.serverUrl
+import com.tibame.foodhunter.core.data.remote.api.CommonPost
+import com.tibame.foodhunter.core.data.remote.api.serverUrl
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,7 +15,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import java.lang.Thread.State
 
 class SearchScreenVM: ViewModel() {
     private val _showSearchText = MutableStateFlow("")
@@ -160,7 +158,7 @@ class SearchScreenVM: ViewModel() {
     // 從資料庫中獲取10家餐廳
     private suspend fun fetchInitRestaurant(): List<Restaurant>{
         try {
-            val url = "${serverUrl}/PreLoadRest"
+            val url = "$serverUrl/PreLoadRest"
             val gson = Gson()
             val result = CommonPost(url, "")
             return if (result.contains("NotFind")) {
@@ -186,7 +184,7 @@ class SearchScreenVM: ViewModel() {
     // 搜尋餐廳從database
     private suspend fun fetchRestaurant(searchText: String): List<Restaurant>{
         try {
-            val url = "${serverUrl}/SelectRestController"
+            val url = "$serverUrl/SelectRestController"
             val gson = Gson()
             val jsonObject = JsonObject()
             jsonObject.addProperty("searchText", searchText)
@@ -207,7 +205,7 @@ class SearchScreenVM: ViewModel() {
     }
     private suspend fun fetchRestaurantId(restaurantId: Int): Restaurant? {
         try {
-            val url = "${serverUrl}/SelectRestByIdController"
+            val url = "$serverUrl/SelectRestByIdController"
             val gson = Gson()
             val jsonObject = JsonObject()
             jsonObject.addProperty("restaurantId", restaurantId)

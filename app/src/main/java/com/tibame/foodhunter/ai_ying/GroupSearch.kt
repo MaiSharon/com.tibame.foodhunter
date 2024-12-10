@@ -42,7 +42,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.tibame.foodhunter.R
-import com.tibame.foodhunter.ui.theme.FColor
+import com.tibame.foodhunter.core.ui.theme.FColor
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId

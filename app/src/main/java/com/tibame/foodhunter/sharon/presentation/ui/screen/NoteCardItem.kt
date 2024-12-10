@@ -19,10 +19,10 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.tibame.foodhunter.R
-import com.tibame.foodhunter.sharon.components.card.ColorBox
-import com.tibame.foodhunter.sharon.components.card.DateBox
-import com.tibame.foodhunter.sharon.components.card.NoteImage
-import com.tibame.foodhunter.sharon.components.card.NoteTextContent
+import com.tibame.foodhunter.sharon.presentation.ui.component.card.ColorBox
+import com.tibame.foodhunter.sharon.presentation.ui.component.card.DateBox
+import com.tibame.foodhunter.sharon.presentation.ui.component.card.NoteImage
+import com.tibame.foodhunter.sharon.presentation.ui.component.card.NoteTextContent
 
 @Preview(showBackground = true)
 @Composable

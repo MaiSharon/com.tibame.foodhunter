@@ -70,7 +70,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.tibame.foodhunter.R
-import com.tibame.foodhunter.ui.theme.FColor
+import com.tibame.foodhunter.core.ui.theme.FColor
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.math.cos

@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModel
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
-import com.tibame.foodhunter.global.CommonPost
-import com.tibame.foodhunter.global.serverUrl
+import com.tibame.foodhunter.core.data.remote.api.CommonPost
+import com.tibame.foodhunter.core.data.remote.api.serverUrl
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
@@ -82,7 +82,7 @@ class FriendViewModel: ViewModel() {
 
     suspend fun friendFetch(username: String): List<Friend>? {
         return try {
-            val url = "${serverUrl}/member/friendFetch"
+            val url = "$serverUrl/member/friendFetch"
             val gson = Gson()
             val jsonObject = JsonObject()
             jsonObject.addProperty("username", username)
@@ -105,7 +105,7 @@ class FriendViewModel: ViewModel() {
 
     suspend fun friendFetch2(username: String): List<Friend>? {
         return try {
-            val url = "${serverUrl}/member/friendFetch2"
+            val url = "$serverUrl/member/friendFetch2"
             val gson = Gson()
             val jsonObject = JsonObject()
             jsonObject.addProperty("username", username)

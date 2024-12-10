@@ -4,13 +4,13 @@ import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
-import com.tibame.foodhunter.global.CommonPost
-import com.tibame.foodhunter.global.serverUrl
-import kotlinx.coroutines.NonCancellable
+import com.tibame.foodhunter.core.data.remote.api.CommonPost
+import com.tibame.foodhunter.core.data.remote.api.serverUrl
+import com.tibame.foodhunter.sharon.domain.entity.CardContentType
+import com.tibame.foodhunter.sharon.domain.entity.Note
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale

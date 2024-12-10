@@ -1,7 +1,6 @@
 package com.tibame.foodhunter.zoe
 
 import android.util.Log
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -28,7 +27,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
@@ -55,7 +53,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.tibame.foodhunter.R
 import com.tibame.foodhunter.a871208s.UserViewModel
-import com.tibame.foodhunter.ui.theme.FColor
+import com.tibame.foodhunter.core.ui.theme.FColor
 import kotlinx.coroutines.launch
 
 enum class SheetContent {
@@ -239,7 +237,7 @@ fun PostDetailItem(
                 Text(
                     text = "${post.comments.size}",
                     style = MaterialTheme.typography.bodySmall,
-                    color =FColor.Dark_66
+                    color = FColor.Dark_66
                 )
                 Spacer(modifier = Modifier.weight(1f)) // 將標籤推到右側
 
@@ -256,7 +254,7 @@ fun PostDetailItem(
                     Spacer(modifier = Modifier.width(10.dp))
                     Text(
                         text = post.postTag,
-                        color =FColor.Dark_66
+                        color = FColor.Dark_66
                     )
                 }
             }

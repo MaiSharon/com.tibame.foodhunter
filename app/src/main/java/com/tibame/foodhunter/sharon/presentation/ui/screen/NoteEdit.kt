@@ -80,11 +80,11 @@ import com.tibame.foodhunter.a871208s.UserViewModel
 import com.tibame.foodhunter.andysearch.SearchScreenVM
 import com.tibame.foodhunter.andysearch.ShowGoogleMap
 import com.tibame.foodhunter.andysearch.ShowRestaurantLists
-import com.tibame.foodhunter.sharon.components.SearchBar
-import com.tibame.foodhunter.sharon.components.topbar.NoteEditTopBar
-import com.tibame.foodhunter.sharon.viewmodel.NoteEditEvent
-import com.tibame.foodhunter.sharon.viewmodel.NoteEditVM
-import com.tibame.foodhunter.ui.theme.FColor
+import com.tibame.foodhunter.core.ui.component.SearchBar
+import com.tibame.foodhunter.sharon.presentation.ui.component.topbar.NoteEditTopBar
+import com.tibame.foodhunter.sharon.presentation.viewmodel.NoteEditEvent
+import com.tibame.foodhunter.sharon.presentation.viewmodel.NoteEditVM
+import com.tibame.foodhunter.core.ui.theme.FColor
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 

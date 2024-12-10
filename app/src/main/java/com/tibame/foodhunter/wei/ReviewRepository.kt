@@ -4,15 +4,12 @@ import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
-import com.tibame.foodhunter.global.CommonPost
-import com.tibame.foodhunter.global.serverUrl
-import com.tibame.foodhunter.zoe.DeleteResponse
-import com.tibame.foodhunter.zoe.PostResponse
+import com.tibame.foodhunter.core.data.remote.api.CommonPost
+import com.tibame.foodhunter.core.data.remote.api.serverUrl
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-import java.security.Timestamp
 
 class ReviewRepository {
 
@@ -32,7 +29,7 @@ class ReviewRepository {
 
     // 根據評論 ID 獲取該評論的回覆列表
     private suspend fun fetchReplies(reviewId: Int): List<ReplyResponse> {
-        val url = "${serverUrl}/reply/byReview?reviewId=$reviewId"
+        val url = "$serverUrl/reply/byReview?reviewId=$reviewId"
         val result = CommonPost(url, "")
         val type = object : TypeToken<List<ReplyResponse>>() {}.type
         return try {
@@ -59,7 +56,7 @@ class ReviewRepository {
 
     // 根據餐廳ID獲取評論列表
     suspend fun fetchReviewByRestId(restaurantId: Int): List<ReviewResponse?> {
-        val url = "${serverUrl}/review/preLoadController"
+        val url = "$serverUrl/review/preLoadController"
         Log.d("ReviewRepository", "Fetching reviews for restaurant ID: $restaurantId")
         Log.d("ReviewRepository", "Request URL: $url")
 
@@ -95,7 +92,7 @@ class ReviewRepository {
 
     // 根據評論ID 獲取評論的詳細資料
     suspend fun fetchReviewById(reviewId: Int): ReviewResponse? {
-        val url = "${serverUrl}/review/getReviewById"
+        val url = "$serverUrl/review/getReviewById"
 
         try {
             val jsonObject = JsonObject().apply {
@@ -131,7 +128,7 @@ class ReviewRepository {
 
     // 創建新回覆
     suspend fun createReply(reviewId: Int, userId: Int, content: String): Boolean {
-        val url = "${serverUrl}/reply/create"
+        val url = "$serverUrl/reply/create"
         val replyRequest = mapOf(
             "reviewId" to reviewId,
             "memberId" to userId,

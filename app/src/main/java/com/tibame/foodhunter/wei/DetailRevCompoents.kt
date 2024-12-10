@@ -46,8 +46,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.google.firebase.BuildConfig
 import com.tibame.foodhunter.R
-import com.tibame.foodhunter.sharon.components.SearchBar
-import com.tibame.foodhunter.ui.theme.FColor
+import com.tibame.foodhunter.core.ui.component.SearchBar
+import com.tibame.foodhunter.core.ui.theme.FColor
 
 
 /**詳細評論內容*/

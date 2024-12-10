@@ -54,14 +54,13 @@ import com.tibame.foodhunter.R
 import com.tibame.foodhunter.andysearch.ImageScreen
 import com.tibame.foodhunter.andysearch.SearchScreenVM
 import com.tibame.foodhunter.andysearch.extractAddress
-import com.tibame.foodhunter.sharon.components.NiaTab
-import com.tibame.foodhunter.sharon.components.NiaTabRow
-import com.tibame.foodhunter.ui.theme.FColor
+import com.tibame.foodhunter.sharon.presentation.ui.component.NiaTab
+import com.tibame.foodhunter.sharon.presentation.ui.component.NiaTabRow
+import com.tibame.foodhunter.core.ui.theme.FColor
 import com.tibame.foodhunter.zoe.Avatar
 import com.tibame.foodhunter.zoe.ImageDisplay
 import com.tibame.foodhunter.zoe.ImageSource
 import com.tibame.foodhunter.zoe.Post
-import kotlinx.coroutines.delay
 
 
 @Preview

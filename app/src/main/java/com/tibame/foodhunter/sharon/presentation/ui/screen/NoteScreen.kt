@@ -25,9 +25,9 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import com.tibame.foodhunter.a871208s.UserViewModel
-import com.tibame.foodhunter.sharon.components.card.NoteOrGroupCard
-import com.tibame.foodhunter.sharon.viewmodel.NoteVM
-import com.tibame.foodhunter.ui.theme.FColor
+import com.tibame.foodhunter.sharon.presentation.ui.component.card.NoteOrGroupCard
+import com.tibame.foodhunter.sharon.presentation.viewmodel.NoteVM
+import com.tibame.foodhunter.core.ui.theme.FColor
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

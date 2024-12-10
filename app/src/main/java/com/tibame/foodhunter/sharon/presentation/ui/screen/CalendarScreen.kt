@@ -22,15 +22,15 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.tibame.foodhunter.R
 import com.tibame.foodhunter.a871208s.UserViewModel
-import com.tibame.foodhunter.sharon.CalendarWidget
-import com.tibame.foodhunter.sharon.components.card.NoteOrGroupCard
-import com.tibame.foodhunter.sharon.util.CalendarUiState
-import com.tibame.foodhunter.sharon.data.CardContentType
-import com.tibame.foodhunter.sharon.data.Group
-import com.tibame.foodhunter.sharon.data.Note
-import com.tibame.foodhunter.sharon.util.DateUtil
-import com.tibame.foodhunter.sharon.viewmodel.CalendarVM
-import com.tibame.foodhunter.ui.theme.FColor
+import com.tibame.foodhunter.sharon.presentation.ui.component.CalendarWidget
+import com.tibame.foodhunter.sharon.presentation.ui.component.card.NoteOrGroupCard
+import com.tibame.foodhunter.sharon.internal.util.CalendarUiState
+import com.tibame.foodhunter.sharon.domain.entity.CardContentType
+import com.tibame.foodhunter.sharon.domain.entity.Group
+import com.tibame.foodhunter.sharon.domain.entity.Note
+import com.tibame.foodhunter.sharon.internal.util.DateUtil
+import com.tibame.foodhunter.sharon.presentation.viewmodel.CalendarVM
+import com.tibame.foodhunter.core.ui.theme.FColor
 import java.time.LocalDate
 import java.util.Calendar
 

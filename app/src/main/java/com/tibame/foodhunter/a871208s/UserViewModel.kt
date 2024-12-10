@@ -11,8 +11,8 @@ import androidx.lifecycle.ViewModel
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
-import com.tibame.foodhunter.global.CommonPost
-import com.tibame.foodhunter.global.serverUrl
+import com.tibame.foodhunter.core.data.remote.api.CommonPost
+import com.tibame.foodhunter.core.data.remote.api.serverUrl
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -37,7 +37,7 @@ class UserViewModel : ViewModel() {
     // 在登入成功時設置 memberId
     suspend fun login(username: String, password: String): Boolean {
         try {
-            val url = "${serverUrl}/member/login"
+            val url = "$serverUrl/member/login"
             val gson = Gson()
             val jsonObject = JsonObject()
             jsonObject.addProperty("username", username)
@@ -77,7 +77,7 @@ class UserViewModel : ViewModel() {
     ): Boolean {
         try {
             // server URL
-            val url = "${serverUrl}/member/register"
+            val url = "$serverUrl/member/register"
             val gson = Gson()
             val jsonObject = JsonObject()
 
@@ -104,7 +104,7 @@ class UserViewModel : ViewModel() {
 
     suspend fun getUserInfo(username: String): User? {
         return try {
-            val url = "${serverUrl}/member/getInfo"
+            val url = "$serverUrl/member/getInfo"
             val gson = Gson()
             val jsonObject = JsonObject()
             jsonObject.addProperty("username", username)
@@ -153,7 +153,7 @@ class UserViewModel : ViewModel() {
     ): Boolean {
         try {
             // server URL
-            val url = "${serverUrl}/member/save"
+            val url = "$serverUrl/member/save"
             val gson = Gson()
             val jsonObject = JsonObject()
 
@@ -196,7 +196,7 @@ class UserViewModel : ViewModel() {
             Log.e("UserViewModel", "Base64 image: $base64Image")
 
             // 准备服务器 URL
-            val url = "${serverUrl}/member/imageSave"
+            val url = "$serverUrl/member/imageSave"
 
             // 创建包含用户名和 Base64 图片字符串的 JSON 对象
             val jsonObject = JsonObject().apply {
@@ -252,7 +252,7 @@ class UserViewModel : ViewModel() {
 
     suspend fun image(username: String): User? {
         return try {
-            val url = "${serverUrl}/member/image"
+            val url = "$serverUrl/member/image"
             val gson = Gson()
             val jsonObject = JsonObject()
             jsonObject.addProperty("username", username)
@@ -323,7 +323,7 @@ class UserViewModel : ViewModel() {
 
     suspend fun getEmailInfo(email: String): User? {
         return try {
-            val url = "${serverUrl}/member/getEmailInfo"
+            val url = "$serverUrl/member/getEmailInfo"
             val gson = Gson()
             val jsonObject = JsonObject()
             jsonObject.addProperty("email", email)
@@ -349,7 +349,7 @@ class UserViewModel : ViewModel() {
     ): Boolean {
         try {
             // server URL
-            val url = "${serverUrl}/member/saveNewPassword"
+            val url = "$serverUrl/member/saveNewPassword"
             val gson = Gson()
             val jsonObject = JsonObject()
 
@@ -371,7 +371,7 @@ class UserViewModel : ViewModel() {
             Log.d("UserViewModel", "=== 開始獲取 username ===")
 
             // 檢查 URL 和請求內容
-            val url = "${serverUrl}/post/GetUsername"  // 注意這裡改成跟其他 API 一樣的路徑格式
+            val url = "$serverUrl/post/GetUsername"  // 注意這裡改成跟其他 API 一樣的路徑格式
             val jsonObject = JsonObject().apply {
                 addProperty("memberId", memberId)
             }

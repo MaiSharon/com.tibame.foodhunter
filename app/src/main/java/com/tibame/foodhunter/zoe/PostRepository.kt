@@ -2,9 +2,7 @@
 package com.tibame.foodhunter.zoe
 
 // 原有的導入
-import android.content.Context
 import android.graphics.BitmapFactory
-import android.net.Uri
 import android.util.Base64
 import android.util.Log
 import androidx.compose.ui.graphics.ImageBitmap
@@ -13,17 +11,14 @@ import androidx.compose.ui.graphics.asImageBitmap
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
-import com.tibame.foodhunter.R
-import com.tibame.foodhunter.andysearch.Restaurant
-import com.tibame.foodhunter.global.CommonPost
-import com.tibame.foodhunter.global.serverUrl
+import com.tibame.foodhunter.core.data.remote.api.CommonPost
+import com.tibame.foodhunter.core.data.remote.api.serverUrl
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.withContext
-import java.lang.reflect.Member
 
 
 class PostRepository {
@@ -36,7 +31,7 @@ class PostRepository {
     val restRelatedPost: StateFlow<List<Post>> = _restRelatedPost.asStateFlow()
 
     private suspend fun fetchComments(postId: Int): List<CommentResponse> {
-        val url = "${serverUrl}/comment/byPost?postId=$postId"
+        val url = "$serverUrl/comment/byPost?postId=$postId"
         val result = CommonPost(url, "")
         val type = object : TypeToken<List<CommentResponse>>() {}.type
         return try {
@@ -60,7 +55,7 @@ class PostRepository {
     }
     // 獲取貼文列表
     private suspend fun fetchPosts(): List<PostResponse> {
-        val url = "${serverUrl}/post/preLoad"
+        val url = "$serverUrl/post/preLoad"
         val result = CommonPost(url, "")
         val type = object : TypeToken<List<PostResponse>>() {}.type
         return gson.fromJson(result, type)
@@ -306,7 +301,7 @@ class PostRepository {
     }
 
     suspend fun createPost(postData: PostCreateData): Boolean {
-        val url = "${serverUrl}/post/create"
+        val url = "$serverUrl/post/create"
 
         return try {
             val json = gson.toJson(postData)
@@ -320,7 +315,7 @@ class PostRepository {
         }
     }
     suspend fun createComment(postId: Int, userId: Int, content: String): Boolean {
-        val url = "${serverUrl}/comment/create"
+        val url = "$serverUrl/comment/create"
         val commentRequest = mapOf(
             "postId" to postId,
             "memberId" to userId,
@@ -370,7 +365,7 @@ class PostRepository {
 
 
     suspend fun deletePost(postId: Int): Boolean {
-        val url = "${serverUrl}/post/delete"
+        val url = "$serverUrl/post/delete"
 
         return try {
             val requestMap = mapOf("postId" to postId)
@@ -390,7 +385,7 @@ class PostRepository {
         }
     }
     suspend fun getPost(postId: Int): Post? {
-        val url = "${serverUrl}/post/get/$postId"
+        val url = "$serverUrl/post/get/$postId"
         return try {
             val result = CommonPost(url, "")
             val response = gson.fromJson(result, PostResponse::class.java)
@@ -402,7 +397,7 @@ class PostRepository {
     }
 
     suspend fun updatePost(postId: Int, postData: PostCreateData): Boolean {
-        val url = "${serverUrl}/post/update"
+        val url = "$serverUrl/post/update"
 
         return try {
             Log.d("UpdatePost", "開始更新貼文流程 - ID: $postId")
@@ -471,7 +466,7 @@ class PostRepository {
 
 
     suspend fun selectPostByRestId(restId: Int): List<RestRelatedPostResponse> {
-        val url = "${serverUrl}/post/RestRelatedPost"
+        val url = "$serverUrl/post/RestRelatedPost"
         val gson = Gson()
         val jsonObject = JsonObject()
         jsonObject.addProperty("restaurantId", restId)

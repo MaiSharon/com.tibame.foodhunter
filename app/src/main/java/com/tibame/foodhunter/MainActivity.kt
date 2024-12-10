@@ -63,7 +63,6 @@ import com.tibame.foodhunter.a871208s.PrivateViewModel
 import com.tibame.foodhunter.a871208s.RegisterScreen
 import com.tibame.foodhunter.a871208s.UserViewModel
 
-import com.tibame.foodhunter.global.*
 import com.tibame.foodhunter.ai_ying.*
 import com.tibame.foodhunter.andysearch.RandomFood
 import com.tibame.foodhunter.andysearch.SearchResult
@@ -73,9 +72,11 @@ import com.tibame.foodhunter.zoe.Home
 
 import com.tibame.foodhunter.andysearch.SearchScreen
 import com.tibame.foodhunter.andysearch.SearchScreenVM
+import com.tibame.foodhunter.core.ui.component.BottomFunctionBar
+import com.tibame.foodhunter.core.ui.component.TopFunctionBar
 import com.tibame.foodhunter.sharon.presentation.ui.screen.NoteEditNavigation
 import com.tibame.foodhunter.sharon.presentation.ui.screen.NoteEditRoute
-import com.tibame.foodhunter.sharon.viewmodel.PersonalToolsVM
+import com.tibame.foodhunter.sharon.presentation.viewmodel.PersonalToolsVM
 import com.tibame.foodhunter.wei.RestaurantDetail
 import com.tibame.foodhunter.wei.RestaurantDetailTopAppBar
 import com.tibame.foodhunter.wei.ReviewDetail

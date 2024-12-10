@@ -61,8 +61,8 @@ import androidx.navigation.NavHostController
 import com.tibame.foodhunter.R
 import com.tibame.foodhunter.a871208s.UserViewModel
 import com.tibame.foodhunter.andysearch.SearchScreenVM
-import com.tibame.foodhunter.sharon.components.SearchBar
-import com.tibame.foodhunter.ui.theme.FColor
+import com.tibame.foodhunter.core.ui.component.SearchBar
+import com.tibame.foodhunter.core.ui.theme.FColor
 import com.tibame.foodhunter.zoe.CarouselItem
 import com.tibame.foodhunter.zoe.ImageDisplay
 import com.tibame.foodhunter.zoe.ImageSource

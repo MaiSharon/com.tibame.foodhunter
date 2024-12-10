@@ -4,12 +4,10 @@ import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
-import com.tibame.foodhunter.global.CommonPost
-import com.tibame.foodhunter.global.serverUrl
+import com.tibame.foodhunter.core.data.remote.api.CommonPost
+import com.tibame.foodhunter.core.data.remote.api.serverUrl
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
 
 object PrivateChatRepository {
 
@@ -31,7 +29,7 @@ object PrivateChatRepository {
 
     suspend fun chatroomFetch(username: String): List<PrivateChat>? {
         return try {
-            val url = "${serverUrl}/member/chatroomFetch"
+            val url = "$serverUrl/member/chatroomFetch"
             val gson = Gson()
             val jsonObject = JsonObject()
             jsonObject.addProperty("username", username)
@@ -53,7 +51,7 @@ object PrivateChatRepository {
 
     suspend fun chatroomFetch2(username: String): List<PrivateChat>? {
         return try {
-            val url = "${serverUrl}/member/chatroomFetch2"
+            val url = "$serverUrl/member/chatroomFetch2"
             val gson = Gson()
             val jsonObject = JsonObject()
             jsonObject.addProperty("username", username)

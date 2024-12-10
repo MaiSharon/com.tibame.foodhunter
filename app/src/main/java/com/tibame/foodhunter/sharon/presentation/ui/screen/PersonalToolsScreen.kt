@@ -27,16 +27,16 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.tibame.foodhunter.R
-import com.tibame.foodhunter.sharon.components.TabBarComponent
-import com.tibame.foodhunter.sharon.viewmodel.PersonalToolsVM
-import com.tibame.foodhunter.ui.theme.FoodHunterTheme
+import com.tibame.foodhunter.sharon.presentation.ui.component.TabBarComponent
+import com.tibame.foodhunter.sharon.presentation.viewmodel.PersonalToolsVM
+import com.tibame.foodhunter.core.ui.theme.FoodHunterTheme
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.tibame.foodhunter.a871208s.UserViewModel
-import com.tibame.foodhunter.sharon.TabConstants
-import com.tibame.foodhunter.sharon.components.topbar.CalendarTopBar
-import com.tibame.foodhunter.sharon.components.topbar.NoteTopBar
-import com.tibame.foodhunter.sharon.viewmodel.CalendarVM
-import com.tibame.foodhunter.sharon.viewmodel.NoteVM
+import com.tibame.foodhunter.sharon.presentation.ui.constant.TabConstants
+import com.tibame.foodhunter.sharon.presentation.ui.component.topbar.CalendarTopBar
+import com.tibame.foodhunter.sharon.presentation.ui.component.topbar.NoteTopBar
+import com.tibame.foodhunter.sharon.presentation.viewmodel.CalendarVM
+import com.tibame.foodhunter.sharon.presentation.viewmodel.NoteVM
 
 
 @OptIn(ExperimentalMaterial3Api::class)

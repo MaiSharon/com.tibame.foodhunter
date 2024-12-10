@@ -3,8 +3,10 @@ package com.tibame.foodhunter.sharon.data
 import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.JsonObject
-import com.tibame.foodhunter.global.CommonPost
-import com.tibame.foodhunter.global.serverUrl
+import com.tibame.foodhunter.core.data.remote.api.CommonPost
+import com.tibame.foodhunter.core.data.remote.api.serverUrl
+import com.tibame.foodhunter.sharon.domain.entity.CardContentType
+import com.tibame.foodhunter.sharon.domain.entity.Group
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
