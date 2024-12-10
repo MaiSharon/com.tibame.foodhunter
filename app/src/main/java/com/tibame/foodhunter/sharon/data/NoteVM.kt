@@ -1,11 +1,15 @@
 package com.tibame.foodhunter.sharon.data
 
 import androidx.lifecycle.ViewModel
+import com.tibame.foodhunter.sharon.domain.entity.Note
+import com.tibame.foodhunter.sharon.domain.repository.INoteRepository
 import kotlinx.coroutines.flow.StateFlow
+import javax.inject.Inject
 
-class NoteVM (
+class NoteVM @Inject constructor(
     private val noteRepository: INoteRepository
 ) : ViewModel() {
-  // repository 的數據用stateFlow放在這
+
+
     val notes: StateFlow<List<Note>> = noteRepository.notes
 }
