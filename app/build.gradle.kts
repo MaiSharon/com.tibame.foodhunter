@@ -4,15 +4,10 @@ plugins {
     alias(libs.plugins.map.serect)
     alias(libs.plugins.google.gms.googleServices)
 
-
-
     alias(libs.plugins.hilt)
-    kotlin("kapt")
+    alias(libs.plugins.ksp)
 }
 
-kapt {
-    correctErrorTypes = true
-}
 android {
     namespace = "com.tibame.foodhunter"
     compileSdk = 34
@@ -51,15 +46,14 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
-
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.8"
     }
     packaging {
         resources {
@@ -74,9 +68,10 @@ dependencies {
     implementation(libs.okhttp.logging)
 
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.android.compiler)
 
 
+//    implementation(libs.androidx.credentials)
     implementation(libs.androidx.core.ktx)
 
     implementation(libs.androidx.activity.compose)
@@ -89,7 +84,7 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
 
     implementation(libs.androidx.ui.test.android)
-    implementation("androidx.compose.material:material-icons-extended:1.5.1") // 添加 material-icons-extended 依賴
+    implementation(libs.androidx.material.icons.extended)
 
 
     implementation(libs.gson)
@@ -104,7 +99,7 @@ dependencies {
     implementation(libs.androidx.benchmark.common)
     implementation(libs.generativeai)
     implementation(libs.firebase.crashlytics.buildtools)
-    implementation(libs.firebase.bom)
+    implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.messaging.ktx)
 
     testImplementation(libs.junit)
