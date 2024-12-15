@@ -2,12 +2,12 @@ package com.tibame.foodhunter.sharon.data
 
 import androidx.lifecycle.ViewModel
 import com.tibame.foodhunter.sharon.domain.entity.Note
-import com.tibame.foodhunter.sharon.domain.repository.INoteRepository
+import com.tibame.foodhunter.sharon.domain.repository.NoteRepository
 import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
 class NoteVM @Inject constructor(
-    private val noteRepository: INoteRepository
+    private val noteRepository: NoteRepository
 ) : ViewModel() {
 
 
