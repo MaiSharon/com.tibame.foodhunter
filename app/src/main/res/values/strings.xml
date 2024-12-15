@@ -69,4 +69,13 @@
     <string name="PersonHomepage">個人貼文</string>
     <string name="default_notification_channel_id">default_channel_id</string>
     <string name="default_notification_channel_name">default_channel_name</string>
+    <string name="the_request_timed_out">請求逾時</string>
+    <string name="youve_hit_your_rate_limit">已達到請求限制次數</string>
+    <string name="no_internet">無法連接伺服器，請檢查網路連線</string>
+    <string name="file_too_large">您嘗試上傳的檔案過大</string>
+    <string name="server_error">系統發生錯誤，請稍後再試</string>
+    <string name="unknown_error">發生未知錯誤</string>
+    <string name="error_disk_full">您的裝置儲存空間已滿，無法儲存項目</string>
+    <string name="error_serialization">抱歉，無法解析資料</string>
+    <string name="error_password_too_short">密碼長度不足</string>
 </resources>
