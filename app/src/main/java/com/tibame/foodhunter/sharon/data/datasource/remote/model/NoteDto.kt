@@ -3,7 +3,7 @@ package com.tibame.foodhunter.sharon.data.datasource.remote.model
 import com.google.gson.annotations.SerializedName
 
 
-data class NoteResponse(
+data class NoteDto(
     @SerializedName("note_id") val noteId: Int,
     val title: String,
     val content: String,
