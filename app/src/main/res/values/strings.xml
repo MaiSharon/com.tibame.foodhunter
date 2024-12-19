@@ -76,6 +76,7 @@
     <string name="server_error">系統發生錯誤，請稍後再試</string>
     <string name="unknown_error">發生未知錯誤</string>
     <string name="error_disk_full">您的裝置儲存空間已滿，無法儲存項目</string>
-    <string name="error_serialization">抱歉，無法解析資料</string>
+    <string name="error_parse_error">JSON格式解析錯誤</string>
     <string name="error_password_too_short">密碼長度不足</string>
+    <string name="domain_conversion_error">領域模型轉換時錯誤</string>
 </resources>

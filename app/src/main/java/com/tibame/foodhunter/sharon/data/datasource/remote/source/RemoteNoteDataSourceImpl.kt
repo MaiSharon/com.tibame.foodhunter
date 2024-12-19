@@ -1,5 +1,7 @@
 package com.tibame.foodhunter.sharon.data.datasource.remote.source
 
+import android.util.Log
+import com.google.gson.JsonSyntaxException
 import com.tibame.foodhunter.sharon.data.datasource.base.NoteDataSource
 import com.tibame.foodhunter.sharon.data.datasource.remote.api.NoteApiService
 import com.tibame.foodhunter.sharon.data.datasource.remote.model.NoteDto
@@ -16,6 +18,10 @@ class RemoteNoteDataSourceImpl @Inject constructor(
         return try {
             val noteList = noteApiService.getNotes(memberId)
             Result.Success(noteList)
+
+        } catch (e: JsonSyntaxException) {
+            Log.d("RemoteNoteDataSourceImpl", "error: ${e.message}")
+            Result.Error(DataError.Network.PARSE_ERROR)
 
         } catch (e: HttpException) {
             // 根據 HTTP 狀態碼返回對應的錯誤類型
