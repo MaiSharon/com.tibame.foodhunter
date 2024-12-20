@@ -27,8 +27,12 @@ fun DataError.asUiText(): UiText {
             R.string.server_error
         )
 
-        DataError.Network.SERIALIZATION -> UiText.StringResource(
-            R.string.error_serialization
+        DataError.Network.PARSE_ERROR -> UiText.StringResource(
+            R.string.error_parse_error
+        )
+
+        DataError.Network.DOMAIN_CONVERSION_ERROR -> UiText.StringResource(
+            R.string.domain_conversion_error
         )
 
         DataError.Network.UNKNOWN -> UiText.StringResource(
@@ -38,6 +42,7 @@ fun DataError.asUiText(): UiText {
         DataError.Local.DISK_FULL -> UiText.StringResource(
             R.string.error_disk_full
         )
+
 
     }
 }
