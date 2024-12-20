@@ -8,9 +8,11 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collect
 import com.tibame.foodhunter.sharon.domain.error.Result
+import com.tibame.foodhunter.sharon.presentation.util.UiText
 import com.tibame.foodhunter.sharon.presentation.util.asUiText
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -26,6 +28,22 @@ class NoteVM @Inject constructor(
         val isLoading: Boolean = false,
     )
 
+    private fun startLoading() {
+        _state.update {
+            it.copy(
+                isLoading = true,
+                )
+        }
+    }
+
+    private fun handleSuccess(notes: List<Note>) {
+        _state.update {
+            it.copy(
+                isLoading = false,
+                notes = notes)
+        }
+    }
+
     //2 .使用者意圖
     sealed class NotesIntent {
         data object LoadNotes : NotesIntent()
@@ -38,11 +56,20 @@ class NoteVM @Inject constructor(
     private val _state = MutableStateFlow(NotesState())
     val state: StateFlow<NotesState> = _state.asStateFlow()
 
+    private val eventChannel = Channel<NoteEvent>()
+    val events = eventChannel.receiveAsFlow()
+
+    private var memberId: Int? = null
+
+    fun setMemberId(memberId: Int) {
+        this.memberId = memberId
+        loadNotes(memberId)
+    }
 
     //4. 實作每個操作 可能會發生什麼錯誤？完成後如何更新畫面？
     fun handleIntent(intent: NotesIntent) {
         when(intent){
-            NotesIntent.LoadNotes -> loadNotes()
+            NotesIntent.LoadNotes -> loadNotes(memberId!!)
             is NotesIntent.AddNote -> TODO()
             is NotesIntent.DeleteNote -> TODO()
             is NotesIntent.EditNote -> TODO()
@@ -50,24 +77,21 @@ class NoteVM @Inject constructor(
     }
 
 
-    private fun loadNotes() {
+
+    private fun loadNotes(memberId:Int) {
         viewModelScope.launch {
-
-            when(val result = repository.getNotes(memberId = "1")) {
+            startLoading()
+            when(val result = repository.getNotes(memberId = memberId)) {
                 is Result.Error -> {
-                    result.error.asUiText()
+                    val errorMessage = result.error.asUiText()
+                    eventChannel.send(NoteEvent.Error(errorMessage))
                 }
-                is Result.Success -> {
-                    _state.update {
-                        it.copy(notes = result.data)
-                    }
-                }
+                is Result.Success -> handleSuccess(result.data)
             }
-
-
-
         }
     }
+}
 
-
+sealed interface NoteEvent {
+    data class Error(val error: UiText): NoteEvent
 }
