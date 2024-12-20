@@ -6,11 +6,6 @@ import com.tibame.foodhunter.sharon.domain.entity.CardContentType
 import com.tibame.foodhunter.sharon.domain.entity.Note
 import com.tibame.foodhunter.sharon.domain.error.DataError
 import com.tibame.foodhunter.sharon.domain.repository.NoteRepository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -48,7 +43,7 @@ class RealNoteRepositoryImpl @Inject constructor(
     private val remoteNoteDataSourceImpl: RemoteNoteDataSourceImpl,
 ) : NoteRepository {
 
-    override suspend fun getNotes(memberId: String): NoteResult {
+    override suspend fun getNotes(memberId: Int): NoteResult {
         return when (val response = remoteNoteDataSourceImpl.getNotes(memberId)) {
             is Result.Success -> {
                 try {

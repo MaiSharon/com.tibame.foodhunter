@@ -7,6 +7,6 @@ import retrofit2.http.Path
 interface NoteApiService {
     @GET("members/{memberId}/notes")
     suspend fun getNotes(
-        @Path("memberId") memberId: String
+        @Path("memberId") memberId: Int
     ): List<NoteDto>
 }

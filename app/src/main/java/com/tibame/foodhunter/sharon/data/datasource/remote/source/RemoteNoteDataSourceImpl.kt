@@ -14,7 +14,7 @@ import javax.inject.Inject
 class RemoteNoteDataSourceImpl @Inject constructor(
     private val noteApiService: NoteApiService
 ) : NoteDataSource {
-    override suspend fun getNotes(memberId: String):Result<List<NoteDto>, DataError.Network> {
+    override suspend fun getNotes(memberId: Int):Result<List<NoteDto>, DataError.Network> {
         return try {
             val noteList = noteApiService.getNotes(memberId)
             Result.Success(noteList)
