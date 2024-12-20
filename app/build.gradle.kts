@@ -37,7 +37,7 @@ android {
             isMinifyEnabled = false
         }
         release {
-            buildConfigField("String","BASE_URL", "http://10.2.17.40:8080/com.tibame.foodhunter_server")
+            buildConfigField("String","BASE_URL", "http://10.0.2.2:8080/com.tibame.foodhunter_server/")
             isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
