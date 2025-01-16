@@ -11,17 +11,23 @@ import androidx.lifecycle.ViewModel
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
+import com.tibame.foodhunter.core.data.networking.SessionManager
 import com.tibame.foodhunter.core.data.remote.api.CommonPost
 import com.tibame.foodhunter.core.data.remote.api.serverUrl
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.withContext
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
+import java.net.HttpURLConnection
+import java.net.URL
 
 class UserViewModel : ViewModel() {
     var username = mutableStateOf("")
     var emailFindPassword = mutableStateOf("")
+
     // 登入
 // 添加 memberId 的 StateFlow
     private val _memberId = MutableStateFlow(0)
@@ -33,39 +39,70 @@ class UserViewModel : ViewModel() {
     var profileBitmap by mutableStateOf<Bitmap?>(null)
 
 
-
     // 在登入成功時設置 memberId
     suspend fun login(username: String, password: String): Boolean {
-        try {
-            val url = "$serverUrl/member/login"
-            val gson = Gson()
-            val jsonObject = JsonObject()
-            jsonObject.addProperty("username", username)
-            jsonObject.addProperty("password", password)
+        return withContext(Dispatchers.IO) {
+            try {
+                val url = "$serverUrl/member/login"
 
-            val result = CommonPost(url, jsonObject.toString())
-            val responseJson = gson.fromJson(result, JsonObject::class.java)
+                // 使用 HttpURLConnection 來取得 Cookie
+                val connection = URL(url).openConnection() as HttpURLConnection
+                connection.requestMethod = "POST"
+                connection.setRequestProperty("Content-Type", "application/json")
+                connection.doOutput = true
 
-            // 如果登入成功，立即獲取並設置 memberId
-            if (responseJson.get("logged").asBoolean) {
-                // 獲取用戶信息並設置 memberId
-                val user = getUserInfo(username)
-                val user1 = image(username)
-                if (user != null) {
-                    _memberId.value = user.id
-                    _nickname.value = user.nickname
-                    user1?.profileImageBase64?.let { base64 ->
-                        profileBitmap = decodeBase64ToBitmap(base64)
-                    }
+                val jsonObject = JsonObject().apply {
+                    addProperty("username", username)
+                    addProperty("password", password)
                 }
-                return true
+
+                // 發送請求內容
+                connection.outputStream.write(jsonObject.toString().toByteArray())
+
+                // 印出所有 headers
+                connection.headerFields.forEach { (key, value) ->
+                    Log.d("Login", "Header - $key: $value")
+                }
+
+                // 處理回應
+                if (connection.responseCode == HttpURLConnection.HTTP_OK) {
+
+                    val cookie = connection.headerFields["Set-Cookie"]
+                    Log.d("Login","Cookie- $cookie")
+
+                    // 1. 儲存 Cookie
+                    cookie?.firstOrNull()?.let {
+                        SessionManager.setSessionCookie(it)
+                    }
+
+                    val response = connection.inputStream.bufferedReader().readText()
+                    val responseJson = Gson().fromJson(response, JsonObject::class.java)
+
+                    // 如果登入成功，立即獲取並設置 memberId
+                    if (responseJson.get("logged").asBoolean) {
+                        // 獲取用戶信息並設置 memberId
+                        val user = getUserInfo(username)
+                        val user1 = image(username)
+                        if (user != null) {
+                            _memberId.value = user.id
+                            _nickname.value = user.nickname
+                            user1?.profileImageBase64?.let { base64 ->
+                                profileBitmap = decodeBase64ToBitmap(base64)
+                            }
+                        }
+                        true
+                    } else {
+                        false
+                    }
+                } else {
+                    false
+                }
+            } catch (e: Exception) {
+                Log.e("Login", "Login failed", e)
+                false
             }
-            return false
-        } catch (e: Exception) {
-            return false
         }
     }
-
     suspend fun register(
         username: String,
         password: String,
@@ -138,10 +175,6 @@ class UserViewModel : ViewModel() {
         val birthday2: String,
         val profileImageBase64: String? = null
     )
-
-
-
-
 
 
     suspend fun save(
@@ -343,6 +376,7 @@ class UserViewModel : ViewModel() {
 
 
     }
+
     suspend fun saveNewPassword(
         email: String,
         password: String,
@@ -366,6 +400,7 @@ class UserViewModel : ViewModel() {
             return false
         }
     }
+
     suspend fun getMemberUsername(memberId: Int): String? {
         return try {
             Log.d("UserViewModel", "=== 開始獲取 username ===")

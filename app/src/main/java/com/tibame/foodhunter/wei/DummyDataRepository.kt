@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.StateFlow
 
 object DummyDataRepository {
     private const val isMockMode = true // 控制是否使用假資料
-    private const val serverUrl = "http://10.0.2.2:8080/com.tibame.foodhunter_server"
+    private const val serverUrl = "http://10.0.2.2:8080/com.tibame.foodhunter_server/"
     private val gson = Gson()
 
     // 使用假資料並為每個評論生成回覆

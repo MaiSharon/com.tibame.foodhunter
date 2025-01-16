@@ -30,7 +30,7 @@ import com.tibame.foodhunter.sharon.domain.entity.Group
 import com.tibame.foodhunter.sharon.domain.entity.Note
 import com.tibame.foodhunter.sharon.internal.util.DateUtil
 import com.tibame.foodhunter.sharon.presentation.viewmodel.CalendarVM
-import com.tibame.foodhunter.core.ui.theme.FColor
+import com.tibame.foodhunter.core.presentation.ui.theme.FColor
 import java.time.LocalDate
 import java.util.Calendar
 

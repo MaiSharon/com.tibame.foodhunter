@@ -34,8 +34,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.tibame.foodhunter.R
-import com.tibame.foodhunter.core.ui.theme.FColor
-import com.tibame.foodhunter.core.ui.theme.FoodHunterFont
+import com.tibame.foodhunter.core.presentation.ui.theme.FColor
+import com.tibame.foodhunter.core.presentation.ui.theme.FoodHunterFont
 
 
 // 邊條顏色

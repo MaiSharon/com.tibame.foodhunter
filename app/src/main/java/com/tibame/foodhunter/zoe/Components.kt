@@ -57,7 +57,7 @@ import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberAsyncImagePainter
 import com.tibame.foodhunter.R
 import com.tibame.foodhunter.andysearch.Restaurant
-import com.tibame.foodhunter.core.ui.theme.FColor
+import com.tibame.foodhunter.core.presentation.ui.theme.FColor
 
 
 sealed class ImageSource {

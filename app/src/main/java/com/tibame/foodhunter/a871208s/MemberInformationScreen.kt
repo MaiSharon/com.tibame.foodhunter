@@ -59,7 +59,7 @@ import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberAsyncImagePainter
 import com.google.gson.JsonObject
 import com.tibame.foodhunter.R
-import com.tibame.foodhunter.core.ui.theme.FColor
+import com.tibame.foodhunter.core.presentation.ui.theme.FColor
 import kotlinx.coroutines.launch
 import java.io.ByteArrayOutputStream
 import java.io.InputStream

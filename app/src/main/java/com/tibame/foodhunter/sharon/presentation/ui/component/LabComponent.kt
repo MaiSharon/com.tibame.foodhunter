@@ -20,7 +20,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
-import com.tibame.foodhunter.core.ui.theme.FColor
+import com.tibame.foodhunter.core.presentation.ui.theme.FColor
 
 
 @Composable

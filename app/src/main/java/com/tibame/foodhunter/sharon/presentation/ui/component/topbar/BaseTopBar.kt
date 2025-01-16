@@ -40,11 +40,11 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.tibame.foodhunter.R
-import com.tibame.foodhunter.core.ui.component.SearchBar
+import com.tibame.foodhunter.core.presentation.ui.component.SearchBar
 import com.tibame.foodhunter.sharon.domain.entity.CardContentType
 import com.tibame.foodhunter.sharon.presentation.viewmodel.CalendarVM
 import com.tibame.foodhunter.sharon.presentation.viewmodel.PersonalToolsVM
-import com.tibame.foodhunter.core.ui.theme.FColor
+import com.tibame.foodhunter.core.presentation.ui.theme.FColor
 
 
 

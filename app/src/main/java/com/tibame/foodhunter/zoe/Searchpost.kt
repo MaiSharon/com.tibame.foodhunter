@@ -27,9 +27,9 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.tibame.foodhunter.R
-import com.tibame.foodhunter.core.ui.component.SearchBar
-import com.tibame.foodhunter.core.ui.theme.FColor
-import com.tibame.foodhunter.core.ui.theme.FoodHunterTheme
+import com.tibame.foodhunter.core.presentation.ui.component.SearchBar
+import com.tibame.foodhunter.core.presentation.ui.theme.FColor
+import com.tibame.foodhunter.core.presentation.ui.theme.FoodHunterTheme
 
 @Composable
 fun SearchPost(

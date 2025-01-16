@@ -34,7 +34,7 @@ import androidx.navigation.NavHostController
 import com.tibame.foodhunter.R
 import com.tibame.foodhunter.sharon.presentation.ui.component.DeleteConfirmationDialog
 import com.tibame.foodhunter.sharon.presentation.viewmodel.NoteEditVM
-import com.tibame.foodhunter.core.ui.theme.FColor
+import com.tibame.foodhunter.core.presentation.ui.theme.FColor
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

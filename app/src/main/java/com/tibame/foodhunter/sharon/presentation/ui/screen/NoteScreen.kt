@@ -27,7 +27,7 @@ import androidx.navigation.NavHostController
 import com.tibame.foodhunter.a871208s.UserViewModel
 import com.tibame.foodhunter.sharon.presentation.ui.component.card.NoteOrGroupCard
 import com.tibame.foodhunter.sharon.presentation.viewmodel.NoteVM
-import com.tibame.foodhunter.core.ui.theme.FColor
+import com.tibame.foodhunter.core.presentation.ui.theme.FColor
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -45,11 +45,6 @@ fun NoteScreen(
     LaunchedEffect(memberId) {
         noteVM.setMemberId(memberId)
     }
-//
-//    Box {
-//        Text(text = memberId.toString())
-//        Text(text = memberId.toString())
-//    }
 
     // 當筆記列表更新時，自動滾動到頂部
     LaunchedEffect(filteredNotes.size) {

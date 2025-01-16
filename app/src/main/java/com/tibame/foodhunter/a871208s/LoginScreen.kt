@@ -47,7 +47,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.tibame.foodhunter.Main
 import com.tibame.foodhunter.R
-import com.tibame.foodhunter.core.ui.theme.titleFamily
+import com.tibame.foodhunter.core.presentation.ui.theme.titleFamily
 import kotlinx.coroutines.launch
 
 

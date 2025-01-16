@@ -10,8 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.tibame.foodhunter.core.ui.theme.FColor
-import com.tibame.foodhunter.core.ui.theme.FTypography
+import com.tibame.foodhunter.core.presentation.ui.theme.FColor
+import com.tibame.foodhunter.core.presentation.ui.theme.FTypography
 
 @Preview(showBackground = true)@Composable
 fun DeleteConfirmationDialogP() {
