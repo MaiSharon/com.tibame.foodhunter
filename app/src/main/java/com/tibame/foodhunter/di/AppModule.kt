@@ -1,8 +1,10 @@
-package com.tibame.foodhunter.sharon.internal.di
+package com.tibame.foodhunter.di
 
 import android.content.Context
 import com.tibame.foodhunter.BuildConfig
-//import com.tibame.foodhunter.sharon.data.TestNoteRepositoryImpl
+import com.tibame.foodhunter.sharon.data.datasource.remote.source.RemoteNoteDataSourceImpl
+import com.tibame.foodhunter.sharon.data.repository.RemoteNoteRepositoryImpl
+import com.tibame.foodhunter.sharon.domain.repository.NoteRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,6 +16,8 @@ data class AppConfiguration (
     val isTestMode: Boolean,
     val apiUrl: String
 )
+
+
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -29,19 +33,6 @@ object AppModule{
             apiUrl = BuildConfig.BASE_URL
         )
     }
-
-
-//    @Provides
-//    @Singleton
-//    fun provideNoteRepository(
-//        appConfiguration: AppConfiguration
-//    ): INoteRepository {
-//        return if (appConfiguration.isTestMode) {
-//            TestNoteRepositoryImpl()
-//        } else {
-//            RealNoteRepositoryImpl()
-//        }
-//    }
 }
 
 
