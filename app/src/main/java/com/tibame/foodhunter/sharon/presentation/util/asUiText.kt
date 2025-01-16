@@ -1,8 +1,7 @@
 package com.tibame.foodhunter.sharon.presentation.util
 
 import com.tibame.foodhunter.R
-import com.tibame.foodhunter.sharon.domain.error.DataError
-import com.tibame.foodhunter.sharon.domain.error.Result
+import com.tibame.foodhunter.core.domain.util.DataError
 
 
 fun DataError.asUiText(): UiText {
@@ -43,7 +42,12 @@ fun DataError.asUiText(): UiText {
             R.string.error_disk_full
         )
 
-
+        DataError.Network.BAD_REQUEST -> UiText.StringResource(
+            R.string.bad_request_error
+        )
+        DataError.Network.NOT_FOUND -> UiText.StringResource(
+            R.string.not_found_error
+        )
     }
 }
 

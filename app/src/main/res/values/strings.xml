@@ -79,4 +79,6 @@
     <string name="error_parse_error">JSON格式解析錯誤</string>
     <string name="error_password_too_short">密碼長度不足</string>
     <string name="domain_conversion_error">領域模型轉換時錯誤</string>
+    <string name="bad_request_error">請求格式錯誤，請確認輸入內容是否正確</string>
+    <string name="not_found_error">找不到所需資源，請確認資料是否存在</string>
 </resources>
