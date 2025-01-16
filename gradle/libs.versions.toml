@@ -4,6 +4,7 @@ retrofit = "2.9.0"
 okhttp = "4.12.0"
 
 hilt = "2.48"
+hiltNavigationCompose = "1.0.0"
 ksp = "1.9.22-1.0.17"
 
 
@@ -49,6 +50,8 @@ okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor",
 
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+
 
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
