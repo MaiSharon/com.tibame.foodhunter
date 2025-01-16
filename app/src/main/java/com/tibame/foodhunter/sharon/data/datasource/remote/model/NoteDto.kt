@@ -4,10 +4,10 @@ import com.google.gson.annotations.SerializedName
 
 
 data class NoteDto(
-    @SerializedName("note_id") val noteId: Int,
+    @SerializedName("noteId") val noteId: Int,
     val title: String,
     val content: String,
-    @SerializedName("restaurant_id") val restaurantId: Int,
-    @SerializedName("member_id") val memberId: Int,
-    @SerializedName("selected_date") val selectedDate: String
+    @SerializedName("restaurantId") val restaurantId: Int,
+    @SerializedName("memberId") val memberId: Int,
+    @SerializedName("selectedDate") val selectedDate: String
 )
