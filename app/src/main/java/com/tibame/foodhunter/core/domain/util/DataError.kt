@@ -1,6 +1,6 @@
-package com.tibame.foodhunter.sharon.domain.error
+package com.tibame.foodhunter.core.domain.util
 
-sealed interface DataError : Error{
+sealed interface DataError : Error {
     enum class Network: DataError {
         REQUEST_TIMEOUT,
         TOO_MANY_REQUESTS,
@@ -9,6 +9,8 @@ sealed interface DataError : Error{
         SERVER_ERROR,
         PARSE_ERROR,
         DOMAIN_CONVERSION_ERROR,
+        BAD_REQUEST,
+        NOT_FOUND,
         UNKNOWN
     }
     enum class Local: DataError {

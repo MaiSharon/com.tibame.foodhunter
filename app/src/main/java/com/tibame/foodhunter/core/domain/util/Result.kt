@@ -1,4 +1,4 @@
-package com.tibame.foodhunter.sharon.domain.error
+package com.tibame.foodhunter.core.domain.util
 
 typealias DomainError = Error // 類型別名對應Error的接口
 
