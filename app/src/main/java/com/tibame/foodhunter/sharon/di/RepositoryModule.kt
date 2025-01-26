@@ -3,7 +3,7 @@ package com.tibame.foodhunter.sharon.di
 import com.tibame.foodhunter.di.AppConfiguration
 import com.tibame.foodhunter.sharon.data.datasource.remote.source.RemoteNoteDataSourceImpl
 import com.tibame.foodhunter.sharon.data.repository.FakeNoteRepositoryImpl
-import com.tibame.foodhunter.sharon.data.repository.RemoteNoteRepositoryImpl
+import com.tibame.foodhunter.sharon.data.repository.NoteRepositoryImpl
 import com.tibame.foodhunter.sharon.domain.repository.NoteRepository
 import dagger.Module
 import dagger.Provides
@@ -18,12 +18,12 @@ class RepositoryModule {
     @Singleton
     fun provideNoteRepository(
         appConfiguration: AppConfiguration,
-        remoteNoteDataSourceImpl: RemoteNoteDataSourceImpl,
+        dataSourceImpl: RemoteNoteDataSourceImpl,
     ): NoteRepository {
         return if (appConfiguration.isTestMode == false) {
             FakeNoteRepositoryImpl()
         } else {
-            RemoteNoteRepositoryImpl(remoteNoteDataSourceImpl)
+            NoteRepositoryImpl(dataSourceImpl)
         }
     }
 }

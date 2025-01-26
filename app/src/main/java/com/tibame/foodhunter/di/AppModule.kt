@@ -2,9 +2,6 @@ package com.tibame.foodhunter.di
 
 import android.content.Context
 import com.tibame.foodhunter.BuildConfig
-import com.tibame.foodhunter.sharon.data.datasource.remote.source.RemoteNoteDataSourceImpl
-import com.tibame.foodhunter.sharon.data.repository.RemoteNoteRepositoryImpl
-import com.tibame.foodhunter.sharon.domain.repository.NoteRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
