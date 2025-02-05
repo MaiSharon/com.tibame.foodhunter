@@ -81,4 +81,7 @@
     <string name="domain_conversion_error">領域模型轉換時錯誤</string>
     <string name="bad_request_error">請求格式錯誤，請確認輸入內容是否正確</string>
     <string name="not_found_error">找不到所需資源，請確認資料是否存在</string>
+    <string name="error_title_too_long">標題不可超過 %d 個字</string>
+    <string name="error_title_empty">標題不可為空</string>
+    <string name="error_content_too_long">內文不可超過 %d 個字</string>
 </resources>

@@ -2,6 +2,7 @@ package com.tibame.foodhunter.sharon.presentation.util
 
 import com.tibame.foodhunter.R
 import com.tibame.foodhunter.core.domain.util.DataError
+import com.tibame.foodhunter.core.domain.util.NoteError
 
 
 fun DataError.asUiText(): UiText {
@@ -47,6 +48,22 @@ fun DataError.asUiText(): UiText {
         )
         DataError.Network.NOT_FOUND -> UiText.StringResource(
             R.string.not_found_error
+        )
+    }
+}
+
+fun NoteError.asUiText(): UiText {
+    return when(this) {
+        is NoteError.TitleTooLong -> UiText.StringResource(
+            R.string.error_title_too_long,
+            arrayOf(maxLength)
+        )
+        NoteError.TitleEmpty -> UiText.StringResource(
+            R.string.error_title_empty
+        )
+        is NoteError.ContentTooLong -> UiText.StringResource(
+            R.string.error_content_too_long,
+            arrayOf(maxLength)
         )
     }
 }
