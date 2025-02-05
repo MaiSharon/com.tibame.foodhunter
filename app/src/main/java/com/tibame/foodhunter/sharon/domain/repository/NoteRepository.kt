@@ -7,4 +7,5 @@ import com.tibame.foodhunter.core.domain.util.Result
 interface NoteRepository {
 
     suspend fun getNotes(): Result<List<Note>, DataError.Network>
+    suspend fun getNote(noteId: Int): Result<Note, DataError.Network>
 }
