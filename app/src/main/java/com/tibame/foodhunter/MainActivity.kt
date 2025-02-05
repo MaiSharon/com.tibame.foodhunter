@@ -31,6 +31,7 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavDestination
 import androidx.navigation.NavHostController
@@ -72,10 +73,14 @@ import com.tibame.foodhunter.zoe.Home
 
 import com.tibame.foodhunter.andysearch.SearchScreen
 import com.tibame.foodhunter.andysearch.SearchScreenVM
-import com.tibame.foodhunter.core.ui.component.BottomFunctionBar
-import com.tibame.foodhunter.core.ui.component.TopFunctionBar
-import com.tibame.foodhunter.sharon.presentation.ui.screen.NoteEditNavigation
-import com.tibame.foodhunter.sharon.presentation.ui.screen.NoteEditRoute
+import com.tibame.foodhunter.core.presentation.ui.component.BottomFunctionBar
+import com.tibame.foodhunter.core.presentation.ui.component.TopFunctionBar
+import com.tibame.foodhunter.sharon.presentation.Routes
+import com.tibame.foodhunter.sharon.presentation.note.NoteDetailState
+import com.tibame.foodhunter.sharon.presentation.note.NoteEditScreen
+//import com.tibame.foodhunter.sharon.presentation.note.NoteDetailContent
+//import com.tibame.foodhunter.sharon.presentation.note.NoteNavigation
+//import com.tibame.foodhunter.sharon.presentation.note.NoteEditRoute
 import com.tibame.foodhunter.sharon.presentation.viewmodel.PersonalToolsVM
 import com.tibame.foodhunter.wei.RestaurantDetail
 import com.tibame.foodhunter.wei.RestaurantDetailTopAppBar
@@ -234,7 +239,7 @@ fun Main(
             if (destination?.route == "GroupChatRoom/{groupId}") {
                 NavigationBar(
                     containerColor = Color.White
-                ){
+                ) {
                     GroupChatRoomBottomBar(navController, gChatVM)
                 }
                 return@Scaffold
@@ -242,7 +247,7 @@ fun Main(
             if (destination?.route == "PrivateChatRoom/{roomId}") {
                 NavigationBar(
                     containerColor = Color.White
-                ){
+                ) {
                     PrivateChatRoomBottomBar(pChatVM, userViewModel)
                 }
                 return@Scaffold
@@ -262,7 +267,7 @@ fun Main(
                         currectScene = context.getString(R.string.str_group)
                     },
                     onMemberClick = {
-                        currectScene =  context.getString(R.string.str_member)
+                        currectScene = context.getString(R.string.str_member)
                     },
                     selectScene = currectScene
                 )
@@ -286,7 +291,7 @@ fun Main(
         ) {
 
             composable(context.getString(R.string.str_login)) {
-                LoginScreen(navController = navController, userViewModel){
+                LoginScreen(navController = navController, userViewModel) {
                     currectScene = context.getString(R.string.str_Recommended_posts)
                     gChatVM.getTokenSendServer()
                 }
@@ -295,10 +300,10 @@ fun Main(
                 RegisterScreen(navController = navController, userViewModel)
             }
             composable(context.getString(R.string.str_login) + "/3") {
-                ForgetPassword1Screen(navController = navController, {},userViewModel)
+                ForgetPassword1Screen(navController = navController, {}, userViewModel)
             }
             composable(context.getString(R.string.str_login) + "/4") {
-                ForgetPassword2Screen(navController = navController, {},userViewModel)
+                ForgetPassword2Screen(navController = navController, {}, userViewModel)
             }
             composable(context.getString(R.string.str_Recommended_posts)) {
                 val memberId by userViewModel.memberId.collectAsState()
@@ -324,14 +329,15 @@ fun Main(
                     postViewModel = postViewModel,
                     userVM = userViewModel,
 
-                )
+                    )
             }
 
             composable(
                 "person_homepage/{publisherId}",
                 arguments = listOf(navArgument("publisherId") { type = NavType.IntType })
             ) { backStackEntry ->
-                val publisherId = backStackEntry.arguments?.getInt("publisherId") ?: return@composable
+                val publisherId =
+                    backStackEntry.arguments?.getInt("publisherId") ?: return@composable
                 PersonHomepageScreen(
                     publisherId = publisherId,
                     postViewModel = postViewModel,
@@ -409,17 +415,17 @@ fun Main(
                 )
             }
 
-            composable(context.getString(R.string.restaurantDetail)){
+            composable(context.getString(R.string.restaurantDetail)) {
                 RestaurantDetail(
                     navController = navController,
-                    restaurantVM =searchVM,
+                    restaurantVM = searchVM,
                     reviewVM = reviewVM
                 )
             }
 
-            composable(context.getString(R.string.reviewDetail)){
+            composable(context.getString(R.string.reviewDetail)) {
                 ReviewDetail(
-                    navController = navController, reviewVM = reviewVM , restaurantVM = searchVM,
+                    navController = navController, reviewVM = reviewVM, restaurantVM = searchVM,
                 )
             }
 
@@ -449,7 +455,11 @@ fun Main(
                     navArgument("roomId") { type = NavType.StringType }
                 )
             ) {
-                PrivateChatRoom(it.arguments?.getString("roomId") ?: "-1", pChatVM,userViewModel)//,gChatRoomVM)
+                PrivateChatRoom(
+                    it.arguments?.getString("roomId") ?: "-1",
+                    pChatVM,
+                    userViewModel
+                )//,gChatRoomVM)
             }
 
 
@@ -472,7 +482,7 @@ fun Main(
                 DeleteMemberScreen(navController = navController)
             }
             composable(context.getString(R.string.str_member) + "/5") {
-                OtherSettingScreen(navController = navController,pChatVM)
+                OtherSettingScreen(navController = navController, pChatVM)
             }
             composable(context.getString(R.string.str_member) + "/6") {
                 FriendManagementScreen(navController = navController, friendVM, userViewModel)
@@ -481,12 +491,12 @@ fun Main(
                 FriendAddScreen(navController = navController, friendVM, userViewModel)
             }
             composable(context.getString(R.string.str_member) + "/8") {
-                PrivateChatScreen(navController = navController,pChatVM,userViewModel)
+                PrivateChatScreen(navController = navController, pChatVM, userViewModel)
             }
 
             navigation(
                 startDestination = context.getString((R.string.str_calendar)),
-                route = "personal_tools"
+                route = Routes.PERSONAL_TOOLS
             ) {
                 composable(context.getString(R.string.str_calendar)) {
                     personalToolsVM.goToCalendarTab()
@@ -497,25 +507,17 @@ fun Main(
                     PersonalToolsScreen(navController, userViewModel, personalToolsVM)
                 }
 
-                composable("note/add") {
-                    NoteEditRoute(
+                composable(route = Routes.addNote()) {
+                    NoteEditScreen(
                         navController = navController,
-                        navigation = NoteEditNavigation.Add,
-                        userVM = userViewModel
+                        mode = NoteDetailState.NoteMode.Add
                     )
                 }
-
-                composable(
-                    route = "note/edit/{noteId}",
-                    arguments = listOf(navArgument("noteId") { type = NavType.IntType })
-                ) { backStackEntry ->
-                    val noteId = backStackEntry.arguments?.getInt("noteId")
-                        ?: return@composable  // 防止空值
-
-                    NoteEditRoute(
+                composable(route = "${Routes.NOTE_DETAIL}/{noteId}") { backStackEntry ->
+                    val noteId = backStackEntry.arguments?.getString("noteId")?.toIntOrNull()
+                    NoteEditScreen(
                         navController = navController,
-                        navigation = NoteEditNavigation.Edit(noteId),
-                        userVM = userViewModel
+                        mode = if (noteId != null) NoteDetailState.NoteMode.Edit(noteId) else NoteDetailState.NoteMode.Add
                     )
                 }
             }

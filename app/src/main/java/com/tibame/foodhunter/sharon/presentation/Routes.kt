@@ -7,6 +7,6 @@ object Routes {
     const val NOTE_DETAIL = "note_detail"
 
     // 建立帶參數的路由
-    fun noteDetail(noteId: Int?) = "$NOTE_DETAIL?noteId=$noteId"
+    fun noteDetail(noteId: Int?) = "$NOTE_DETAIL/$noteId"
     fun addNote() = NOTE_DETAIL
 }
