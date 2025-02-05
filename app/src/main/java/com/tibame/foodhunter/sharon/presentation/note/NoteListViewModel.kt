@@ -2,14 +2,11 @@ package com.tibame.foodhunter.sharon.presentation.note
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.tibame.foodhunter.sharon.domain.entity.Note
-import com.tibame.foodhunter.core.domain.util.DataError
 import com.tibame.foodhunter.sharon.domain.repository.NoteRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import com.tibame.foodhunter.core.domain.util.Result
 import com.tibame.foodhunter.sharon.presentation.NoteListNavigationEvent
-import com.tibame.foodhunter.sharon.presentation.util.UiText
 import com.tibame.foodhunter.sharon.presentation.util.asUiText
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.SharingStarted
@@ -24,34 +21,6 @@ import javax.inject.Inject
 class NoteListViewModel @Inject constructor(
     private val repository: NoteRepository
 ) : ViewModel() {
-
-
-    private fun startLoading() {
-        _state.update {
-            it.copy(
-                isLoading = true,
-                )
-        }
-    }
-
-    private fun handleSuccess(notes: List<Note>) {
-        _state.update {
-            it.copy(
-                isLoading = false,
-                notes = notes)
-        }
-    }
-
-    private fun handleError(errorMessage: DataError.Network):UiText {
-        _state.update {
-            it.copy(
-                isLoading = false,
-                errorMessage = errorMessage.asUiText()
-                )
-        }
-        return errorMessage.asUiText()
-    }
-
 
     private val _events = Channel<NoteEvent>()
     val events = _events.receiveAsFlow()
@@ -96,13 +65,29 @@ class NoteListViewModel @Inject constructor(
 
     private fun loadNotes() {
         viewModelScope.launch {
-            startLoading()
+            _state.update {
+                it.copy(
+                    isLoading = true,
+                )
+            }
+
             when(val result = repository.getNotes()) {
                 is Result.Error -> {
-                    val errorMessage = handleError(result.error)
-                    _events.send(NoteEvent.ShowError(errorMessage))
+                    _state.update { it.copy(isLoading = false) }
+                    _events.send(
+                        NoteEvent.Error
+                            (
+                            result.error.asUiText()
+                        )
+                    )
                 }
-                is Result.Success -> handleSuccess(result.data)
+                is Result.Success -> {
+                    _state.update {
+                        it.copy(
+                            isLoading = false,
+                            notes = result.data)
+                    }
+                }
             }
         }
     }
